@@ -1,8 +1,16 @@
 package com.example.demowebclient.httpbin;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Prefecture implements Comparable<Prefecture> {
 
-    private String code;
+    private final String code;
+
+    @JsonCreator
+    public Prefecture(@JsonProperty("code") String code) {
+        this.code = code;
+    }
 
     @Override
     public int compareTo(Prefecture o) {
@@ -11,9 +19,5 @@ public class Prefecture implements Comparable<Prefecture> {
 
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 }
