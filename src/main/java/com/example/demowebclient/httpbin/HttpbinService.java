@@ -23,8 +23,8 @@ public class HttpbinService {
     public HttpbinService(RestTemplateBuilder restTemplateBuilder, WebClient.Builder webClientBuilder) {
         this.restTemplate = restTemplateBuilder.rootUri("http://httpbin.org").build();
         this.webClient = webClientBuilder
-            .clientConnector(
-                new ReactorClientHttpConnector(HttpClient.create().wiretap(true) /* debug log */))
+//            .clientConnector(
+//                new ReactorClientHttpConnector(HttpClient.create().wiretap(true) /* debug log */))
             .baseUrl("http://httpbin.org").build();
     }
 
