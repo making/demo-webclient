@@ -20,7 +20,8 @@ Requests/sec:      2.92
 Transfer/sec:      2.37KB
 ```
 
-* All request got timeout ...
+* too high latency
+* low throughput
 
 ### Async + Blocking (`Future`)
 
@@ -46,7 +47,7 @@ Transfer/sec:     12.65KB
 ```
 
 * too many threads
-* slow latency
+* high latency
 
 ### Async + NonBlocking (`CompletableFuture`) + Thread Pool Execturoe
 
