@@ -76,7 +76,7 @@ Transfer/sec:    182.56KB
 
 ### Async + NonBlocking (Reactor)
 
-![image](https://user-images.githubusercontent.com/106908/55136006-8faa4b00-5170-11e9-89f3-0a74c5410656.png)
+![image](https://user-images.githubusercontent.com/106908/55141561-ff730280-517d-11e9-9fcf-edba6c35dfcc.png)
 
 ```
 $ wrk -t16 -c100 -d30s --latency --timeout 30s http://localhost:8080/mono
