@@ -1,5 +1,6 @@
 package com.example.demowebclient.httpbin;
 
+import io.netty.channel.ChannelOption;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.scheduling.annotation.Async;
@@ -23,8 +24,12 @@ public class HttpbinService {
     public HttpbinService(RestTemplateBuilder restTemplateBuilder, WebClient.Builder webClientBuilder) {
         this.restTemplate = restTemplateBuilder.rootUri("http://httpbin.org").build();
         this.webClient = webClientBuilder
-//            .clientConnector(
-//                new ReactorClientHttpConnector(HttpClient.create().wiretap(true) /* debug log */))
+            .clientConnector(
+                new ReactorClientHttpConnector(HttpClient.create()
+                    .tcpConfiguration(tcpClient -> tcpClient
+                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 30_000))
+                    //    .wiretap(true) /* debug log */
+                ))
             .baseUrl("http://httpbin.org").build();
     }
 
